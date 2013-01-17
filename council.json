@@ -1,0 +1,213 @@
+[
+    {
+        "name": "Phil Mendelson",
+        "contact": {
+            "email": "pmendelson@dccouncil.us",
+            "office": "1350 Pennsylvania Avenue NW, Suite 504, Washington, DC 20004",
+            "tel": "(202) 724-8032"
+        },
+        "affiliation": "Democratic Party",
+        "roles": {
+            "Committee of the Whole": "chairman",
+            "Committee on Education": "councilmember",
+            "Committee on Health": "councilmember",
+            "Committee on Finance and Revenue": "councilmember",
+            "Committee on Government Operations": "councilmember"
+        }
+    },
+    {
+        "name": "Vincent Orange",
+        "contact": {
+            "email": "vorange@dccouncil.us",
+            "office": "1350 Pennsylvania Avenue NW, Suite 107, Washington, DC 20004",
+            "tel": "(202) 724-8174"
+        },
+        "affiliation": "Democratic Party",
+        "roles": {
+            "Committee on Business, Consumer and Regulatory Affairs": "chairman",
+            "Committee on Business, Consumer and Regulatory Affairs": "councilmember",
+            "Committee on Economic Development": "councilmember",
+            "Committee on Government Operations": "councilmember",
+            "Committee on Health": "councilmember",
+            "Committee of the Whole": "councilmember"
+        }
+    },
+    {
+        "name": "David Grosso",
+        "contact": {
+            "email": "dgrosso@dccouncil.us",
+            "office": "1350 Pennsylvania Avenue NW, Suite 406, Washington, DC 20004",
+            "tel": "(202) 724-8105"
+        },
+        "affiliation": "Independent",
+        "roles": {
+            "Committee of the Whole": "councilmember",
+            "Committee on Business, Consumer and Regulatory Affairs": "councilmember",
+            "Committee on Education": "councilmember",
+            "Committee on Finance and Revenue": "councilmember",
+            "Committee on Health": "councilmember",
+            "Committee on Transportation and the Environment": "councilmember"
+        }
+    },
+    {
+        "name": "Anita Bonds",
+        "contact": {
+            "email": "abonds@dccouncil.us",
+            "office": "1350 Pennsylvania Avenue NW, Suite 408, Washington, DC 20004",
+            "tel": "202-724-8064"
+        },
+        "affiliation": "Independent",
+        "roles": {
+            "Committee of the Whole": "councilmember",
+            "Committee on Economic Development": "councilmember",
+            "Committee on Health": "councilmember",
+            "Committee on Human Services": "councilmember",
+            "Committee on the Judiciary and Public Safety": "councilmember"
+        }
+    },
+    {
+        "name": "Jim Graham",
+        "contact": {
+            "email": "jgraham@dccouncil.us",
+            "office": "1350 Pennsylvania Avenue, Suite 105, NW Washington, DC 20004",
+            "tel": "(202) 724-8181"
+        },
+        "affiliation": "Democratic Party",
+        "roles": {
+            "Committee of the Whole": "councilmember",
+            "Committee on Business, Consumer and Regulatory Affairs": "councilmember",
+            "Committee on Human Services": "chairman",
+            "Committee on Transportation and the Environment": "councilmember"
+        }
+    },
+    {
+        "name": "Jack Evans",
+        "contact": {
+            "email": "jevans@dccouncil.us",
+            "office": "1350 Pennsylvania Avenue, Suite 106, NW Washington, DC 20004",
+            "tel": "(202) 724-8058"
+        },
+        "affiliation": "Democratic Party",
+        "roles": {
+            "Committee of the Whole": "councilmember",
+            "Committee on Economic Development": "councilmember",
+            "Committee on Transportation and the Environment": "councilmember",
+            "Committee on Finance and Revenue": "chairman",
+            "Subcommittee on Redistricting 2011": "chairman",
+            "Committee on the Judiciary and Public Safety": "councilmember"
+        }
+    },
+    {
+        "name": "Mary M. Cheh",
+        "contact": {
+            "email": "mcheh@dccouncil.us",
+            "office": "1350 Pennsylvania Avenue, Suite 108, NW Washington, DC 20004",
+            "tel": "(202) 724-8062"
+        },
+        "affiliation": "Democratic Party",
+        "roles": {
+            "Committee of the Whole": "councilmember",
+            "Committee on Transportation and the Environment": "chairman",
+            "Committee on Government Operations": "councilmember",
+            "Committee on Business, Consumer and Regulatory Affairs": "councilmember",
+            "Committee on the Judiciary and Public Safety": "councilmember"
+        }
+    },
+    {
+        "name": "Muriel Bowser",
+        "contact": {
+            "email": "mbowser@dccouncil.us",
+            "office": "1350 Pennsylvania Avenue, Suite 110, NW Washington, DC 20004",
+            "tel": "(202) 724-8052"
+        },
+        "affiliation": "Democratic Party",
+        "roles": {
+            "Committee of the Whole": "councilmember",
+            "Committee on Economic Development": "chairman",
+            "Committee on Finance and Revenue": "councilmember",
+            "Committee on Government Operations": "councilmember",
+            "Committee on the Judiciary and Public Safety": "councilmember"
+        }
+    },
+    {
+        "name": "Kenyan McDuffie",
+        "contact": {
+            "email": "kmcduffie@dccouncil.us",
+            "office": "1350 Pennsylvania Avenue NW, Suite 506, Washington, DC 20004",
+            "tel": "(202) 724-8028 "
+        },
+        "affiliation": "Democratic Party",
+        "roles": {
+            "Committee of the Whole": "councilmember",
+            "Committee on Workforce and Community Affairs": "councilmember",
+            "Committee on Economic Development": "councilmember",
+            "Committee on Government Operations": "chairman",
+            "Committee on Human Services": "councilmember",
+            "Committee on Transportation and the Environment": "councilmember"
+        }
+    },
+    {
+        "name": "Tommy Wells",
+        "contact": {
+            "email": "twells@dccouncil.us",
+            "office": "1350 Pennsylvania Avenue, Suite 402, NW Washington, DC 20004",
+            "tel": "(202) 724-8072 "
+        },
+        "affiliation": "Democratic Party",
+        "roles": {
+            "Committee of the Whole": "councilmember",
+            "Committee on the Judiciary and Public Safety": "chairman",
+            "Committee on Workforce and Community Affairs": "councilmember",
+            "Committee on Education": "councilmember",
+            "Committee on Human Services": "councilmember"
+        }
+    },
+    {
+        "name": "Yvette Alexander",
+        "contact": {
+            "email": "yalexander@dccouncil.us",
+            "office": "1350 Pennsylvania Avenue, Suite 400, NW Washington, DC 20004",
+            "tel": "(202) 724-8068"
+        },
+        "affiliation": "Democratic Party",
+        "roles": {
+            "Committee of the Whole": "councilmember",
+            "Committee on Health": "chairman",
+            "Committee on Workforce and Community Affairs": "councilmember",
+            "Committee on Education": "councilmember"
+        }
+    },
+    {
+        "name": "Marion Barry",
+        "contact": {
+            "email": "mbarry@dccouncil.us",
+            "office": "1350 Pennsylvania Avenue NW, Suite 102, Washington, DC 20004",
+            "tel": "(202) 724-8045"
+        },
+        "affiliation": "Democratic Party",
+        "roles": {
+            "Committee of the Whole": "councilmember",
+            "Committee on Workforce and Community Affairs": "chairman",
+            "Committee on Finance and Revenue": "councilmember",
+            "Committee on Human Services": "councilmember",
+            "Committee on Education": "councilmember"
+        }
+    },
+    {
+        "name": "David Catania",
+        "contact": {
+            "email": "dcatania@dccouncil.us",
+            "office": "1350 Pennsylvania Avenue NW, Suite 404, Washington, DC 20004",
+            "tel": "(202) 724-7772"
+        },
+        "affiliation": "Independent",
+        "roles": {
+            "Committee of the Whole": "councilmember",
+            "Committee on Education": "chairman",
+            "Committee on Health": "councilmember",
+            "Committee on Finance and Revenue": "councilmember",
+            "Committee on Government Operations": "councilmember",
+            "Committee of the Whole": "councilmember"
+        }
+    }
+]
