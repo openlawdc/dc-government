@@ -12,6 +12,22 @@ a:hover { color: #5A00CF; }
 
 table {
     border-collapse: collapse;
+    width:100%;
+}
+
+.filters a {
+    cursor: pointer;
+    display:inline-block;
+    background:#eee;
+    margin:2px;
+    padding:2px 5px;
+    color:#222;
+    border:1px solid #ccc;
+}
+
+.filters a.selected {
+    background:#222;
+    color:#eee;
 }
 
 table thead th {
@@ -30,8 +46,11 @@ table tr td {
 </style>
 <body>
 <h1>DC Council</h1>
-<script src='http://d3js.org/d3.v3.min.js'></script>
+<script src='js/d3.v3.min.js'></script>
 <script>
+
+var filters = d3.select('body').append('div').attr('class', 'filters');
+var filterCommittees = filters.append('div');
 
 var table = d3.select('body').append('table');
 
@@ -39,8 +58,27 @@ var parties = d3.scale.ordinal()
     .domain(['Democratic Party', 'Independent'])
     .range(['#D4E9FF', '#EBEBEB']);
 
+d3.json('committees.json', function(error, committees) {
 d3.json('council.json', function(error, council) {
+
+    var filterCommitteesA = filterCommittees.selectAll('a.filter-committee')
+        .data(committees)
+        .enter()
+        .append('a')
+        .attr('class', 'filter-committee')
+        .text(String)
+        .on('click', function() {
+            var c = d3.select(this).datum();
+            filterCommitteesA.classed('selected', function(f) {
+                return f == c;
+            });
+            draw(function(d) {
+                return d3.keys(d.roles).indexOf(c) !== -1;
+            });
+        });
+
     var columns = d3.keys(council[0]);
+
     table.append('thead')
         .selectAll('th')
         .data(columns)
@@ -48,33 +86,46 @@ d3.json('council.json', function(error, council) {
         .append('th')
         .text(String);
 
-    var tr = table.append('tbody')
-        .selectAll('tr')
-        .data(council)
-        .enter()
-        .append('tr');
+    var tbody = table.append('tbody')
 
-    tr.selectAll('td')
-        .data(function(d) {
-            return columns.map(function(c) {
-                return d[c];
-            });
-        })
-        .enter()
-        .append('td')
-        .html(function(d) {
-            if (d.length) return d;
-            return d3.entries(d).map(function(x) {
-                if (x.value.indexOf('@') !== -1) {
-                    return x.key + ': <a href="mailto:' + x.value + '">' + x.value + '</a>';
-                } else {
-                    return x.key + ': ' + x.value;
-                }
-            }).join('<br />');
+
+    function draw(filter) {
+
+        var tr = tbody.selectAll('tr').data(council.filter(filter || d3.functor(true)), function(d) {
+            return d.name;
         });
-    tr.style('background', function(d) {
-        return parties(d.affiliation);
-    })
+
+        tr.exit().remove();
+        tr.enter().append('tr');
+
+        var tds = tr.selectAll('td')
+            .data(function(d) {
+                return columns.map(function(c) {
+                    return d[c];
+                });
+            });
+
+        tds.enter()
+            .append('td')
+            .html(function(d) {
+                if (d.length) return d;
+                return d3.entries(d).map(function(x) {
+                    if (x.value.indexOf('@') !== -1) {
+                        return x.key + ': <a href="mailto:' + x.value + '">' + x.value + '</a>';
+                    } else {
+                        return x.key + ': ' + x.value;
+                    }
+                }).join('<br />');
+            });
+
+        tr.style('background', function(d) {
+            return parties(d.affiliation);
+        })
+    }
+
+    draw();
+
+});
 });
 
 </script>
