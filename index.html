@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<meta charset='utf-8'>
+<style>
+
+body {
+    font: normal 13px/20px sans-serif;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table tr th {
+    text-align:left;
+}
+
+table tr td {
+    text-align:left;
+    padding:10px;
+    border:1px solid #aaa;
+    vertical-align:top;
+}
+
+</style>
+<body>
+<script src='http://d3js.org/d3.v3.min.js'></script>
+<script>
+
+var table = d3.select('body').append('table');
+
+var parties = d3.scale.ordinal()
+    .domain(['Democratic Party', 'Independent'])
+    .range(['#D4E9FF', '#EBEBEB']);
+
+d3.json('council.json', function(error, council) {
+    var columns = d3.keys(council[0]);
+    table.append('thead')
+        .selectAll('th')
+        .data(columns)
+        .enter()
+        .append('th')
+        .text(String);
+
+    var tr =table.append('tbody')
+        .selectAll('tr')
+        .data(council)
+        .enter()
+        .append('tr');
+
+    tr.selectAll('td')
+        .data(function(d) {
+            return columns.map(function(c) {
+                return d[c];
+            });
+        })
+        .enter()
+        .append('td')
+        .html(function(d) {
+            if (d.length) return d;
+            return d3.entries(d).map(function(x) {
+                return x.key + ': ' + x.value;
+            }).join('<br />');
+        });
+    tr.style('background', function(d) {
+        return parties(d.affiliation);
+    })
+});
+
+</script>
