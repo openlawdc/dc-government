@@ -4,14 +4,20 @@
 
 body {
     font: normal 13px/20px sans-serif;
+    margin:20px;
 }
+
+a { color:#51169E; }
+a:hover { color: #5A00CF; }
 
 table {
     border-collapse: collapse;
 }
 
-table tr th {
+table thead th {
     text-align:left;
+    font-size:15px;
+    padding:10px;
 }
 
 table tr td {
@@ -23,6 +29,7 @@ table tr td {
 
 </style>
 <body>
+<h1>DC Council</h1>
 <script src='http://d3js.org/d3.v3.min.js'></script>
 <script>
 
@@ -41,7 +48,7 @@ d3.json('council.json', function(error, council) {
         .append('th')
         .text(String);
 
-    var tr =table.append('tbody')
+    var tr = table.append('tbody')
         .selectAll('tr')
         .data(council)
         .enter()
@@ -58,7 +65,11 @@ d3.json('council.json', function(error, council) {
         .html(function(d) {
             if (d.length) return d;
             return d3.entries(d).map(function(x) {
-                return x.key + ': ' + x.value;
+                if (x.value.indexOf('@') !== -1) {
+                    return x.key + ': <a href="mailto:' + x.value + '">' + x.value + '</a>';
+                } else {
+                    return x.key + ': ' + x.value;
+                }
             }).join('<br />');
         });
     tr.style('background', function(d) {
