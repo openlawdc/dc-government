@@ -1,135 +1,52 @@
 <!DOCTYPE html>
-<meta charset='utf-8'>
-<style>
-
-body {
-    font: normal 13px/20px sans-serif;
-    margin:20px;
-}
-
-a { color:#51169E; }
-a:hover { color: #5A00CF; }
-
-table {
-    border-collapse: collapse;
-    width:100%;
-}
-
-.filters a {
-    cursor: pointer;
-    display:inline-block;
-    background:#eee;
-    margin:2px;
-    padding:2px 5px;
-    color:#222;
-    border:1px solid #ccc;
-}
-
-.filters a.selected {
-    background:#222;
-    color:#eee;
-}
-
-table thead th {
-    text-align:left;
-    font-size:15px;
-    padding:10px;
-}
-
-table tr td {
-    text-align:left;
-    padding:10px;
-    border:1px solid #aaa;
-    vertical-align:top;
-}
-
-</style>
-<body>
-<h1>DC Council</h1>
-<p>This is <a href='https://github.com/tmcw/dc-government'>open source and open data,</a>
-based on the <a href='http://www.dccouncil.washington.dc.us/'>council website</a>.
-Please <a href='https://github.com/tmcw/dc-government/issues'>help out with improvements &amp; bug reports</a>.
-</p>
-<script src='js/d3.v3.min.js'></script>
+<script src='js/domo.js'></script>
 <script>
-
-var filters = d3.select('body').append('div').attr('class', 'filters');
-var filterCommittees = filters.append('div');
-
-var table = d3.select('body').append('table');
-
-var parties = d3.scale.ordinal()
-    .domain(['Democratic Party', 'Independent'])
-    .range(['#D4E9FF', '#EBEBEB']);
-
-d3.json('committees.json', function(error, committees) {
-d3.json('council.json', function(error, council) {
-
-    var filterCommitteesA = filterCommittees.selectAll('a.filter-committee')
-        .data(committees)
-        .enter()
-        .append('a')
-        .attr('class', 'filter-committee')
-        .text(String)
-        .on('click', function() {
-            var c = d3.select(this).datum();
-            filterCommitteesA.classed('selected', function(f) {
-                return f == c;
-            });
-            draw(function(d) {
-                return d3.keys(d.roles).indexOf(c) !== -1;
-            });
-        });
-
-    var columns = d3.keys(council[0]);
-
-    table.append('thead')
-        .selectAll('th')
-        .data(columns)
-        .enter()
-        .append('th')
-        .text(String);
-
-    var tbody = table.append('tbody')
-
-
-    function draw(filter) {
-
-        var tr = tbody.selectAll('tr').data(council.filter(filter || d3.functor(true)), function(d) {
-            return d.name;
-        });
-
-        tr.exit().remove();
-        tr.enter().append('tr');
-
-        var tds = tr.selectAll('td')
-            .data(function(d) {
-                return columns.map(function(c) {
-                    return d[c];
-                });
-            });
-
-        tds.enter()
-            .append('td')
-            .html(function(d) {
-                if (d.length) return d;
-                return d3.entries(d).map(function(x) {
-                    if (x.value.indexOf('@') !== -1) {
-                        return x.key + ': <a href="mailto:' + x.value + '">' + x.value + '</a>';
-                    } else {
-                        return x.key + ': ' + x.value;
-                    }
-                }).join('<br />');
-            });
-
-        tr.style('background', function(d) {
-            return parties(d.affiliation);
-        })
-    }
-
-    draw();
-
-});
-});
-
+HTML({lang: "en"},
+HEAD(
+  TITLE("dc-government"),
+  SCRIPT({src: "js/d3.v3.min.js"}),
+  SCRIPT({src: "js/page.js"}),
+  STYLE({type: "text/css"},
+    STYLE.on("body", {font: "normal 13px/20px sans-serif"}),
+    STYLE.on('a', { color:'#51169E' }),
+    STYLE.on('a:hover', { color: '#5A00CF' }),
+    STYLE.on('table', {
+        borderCollapse: 'collapse',
+        width:'100%'
+    }),
+    STYLE.on('table thead th', {
+        textAlign:'left',
+        fontSize:'15px',
+        padding:'10px'
+    }),
+    STYLE.on('.filters a', {
+        cursor: 'pointer',
+        display:'inline-block',
+        background:'#eee',
+        margin:'2px',
+        padding:'2px 5px',
+        color:'#222',
+        border:'1px solid #ccc'
+    }),
+    STYLE.on('table tr td', {
+        textAlign:'left',
+        padding:'10px',
+        border:'1px solid #aaa',
+        'vertical-align':'top'
+    }),
+    STYLE.on('.filters a.selected', {
+        background:'#222',
+        color:'#eee'
+    })
+  )
+),
+BODY(H1("DC Council"),
+    P('This is ',
+    A({href:'https://github.com/tmcw/dc-government'},'open source software'),
+    ' based on the ',
+    A({href:'http://www.dccouncil.washington.dc.us/'},'council website'),
+    '. Please ',
+    A({href:'https://github.com/tmcw/dc-government/issues'},'help out with improvements & bug reports')
+)));
 </script>
+<body>
